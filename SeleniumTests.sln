@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowSelenium", "SpecFlo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19E0B90A-204B-4874-9A37-BC951F249B8E}"
 	ProjectSection(SolutionItems) = preProject
+		home.html = home.html
+		login.html = login.html
 		README.txt = README.txt
 	EndProjectSection
 EndProject

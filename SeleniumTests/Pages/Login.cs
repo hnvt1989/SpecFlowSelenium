@@ -9,7 +9,6 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Selenium.Pages
 {
-    //REF: Page Object model: https://developers.perfectomobile.com/pages/viewpage.action?pageId=21431059
     public class Login
     {
         private IWebDriver driver;
@@ -43,6 +42,7 @@ namespace Selenium.Pages
         public void NavigateToLogInPage()
         {
             driver.Navigate().GoToUrl(LoginUrl);
+            
         }
 
         public void SetUserName(string username)

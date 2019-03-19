@@ -18,9 +18,11 @@ namespace SpecFlowSelenium.Steps
         {
             //ScenarioContext.Current.Pending();
             driver = new ChromeDriver();
+           
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
             login = new Login(driver);
+            login.NavigateToLogInPage();
             login.SetUserName(TestSettings.Username);
             login.SetPassword(TestSettings.Password);
             login.LogIn();
