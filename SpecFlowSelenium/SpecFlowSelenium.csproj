@@ -70,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddEmployee.feature</DependentUpon>
     </Compile>
+    <Compile Include="Hooks\WebDriverSupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\AddEmployeeSteps.cs" />
   </ItemGroup>
@@ -79,9 +80,7 @@
       <Name>Selenium</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Hooks\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\AddEmployee.feature">

@@ -6,10 +6,25 @@ using System.Threading.Tasks;
 
 namespace Selenium
 {
-    public static class TestSettings
+    public class TestSettings
     {
-        public static string SiteUrl { get; set; }
-        public static string Username { get; set; }
-        public static string Password { get; set; }
+        public string SiteUrl {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["SiteUrl"];
+            }
+        }
+        public string Username {
+            get
+            {
+                return System.Configuration.ConfigurationManager.AppSettings["Username"];
+            }
+        }
+
+        public string Password {
+            get {
+                return System.Configuration.ConfigurationManager.AppSettings["Password"];
+            }
+        }
     }
 }

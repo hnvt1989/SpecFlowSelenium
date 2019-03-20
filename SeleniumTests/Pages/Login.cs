@@ -12,10 +12,12 @@ namespace Selenium.Pages
     public class Login
     {
         private IWebDriver driver;
+        private TestBase _testBase;
 
-        public Login(IWebDriver _driver)
+        public Login(TestBase testBase)
         {
-            this.driver = _driver;
+            driver = testBase.WebDriver;
+            _testBase = testBase;
 
             //lazy loading, wait will start only if we perform operation on control
             RetryingElementLocator factory = new RetryingElementLocator(driver, TimeSpan.FromMinutes(2));
@@ -25,7 +27,7 @@ namespace Selenium.Pages
 
         public string LoginUrl
         {
-            get { return TestSettings.SiteUrl + "login.html"; }
+            get { return _testBase.SiteUrl + "login.html"; }
         }
 
         [FindsBy(How = How.Name, Using = "form-username")]

@@ -44,9 +44,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddEmployeeModal.cs" />
     <Compile Include="Pages\BenefitsDashboard.cs" />
     <Compile Include="Pages\Login.cs" />
-    <Compile Include="Setup.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="TestSettings.cs" />
   </ItemGroup>

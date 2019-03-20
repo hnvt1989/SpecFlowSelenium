@@ -10,81 +10,52 @@ namespace Selenium
 {
     public class TestBase
     {
-        private IWebDriver _driver;
+        //private IWebDriver _driver;
         protected string _baseUrl;
+
+        public IWebDriver WebDriver { get; protected set; }
+
+        public string SiteUrl
+        {
+            get
+            {
+                //return ConfigurationManager.AppSettings["SiteUrl"];
+                return "C:\\dev\\SeleniumTests\\";
+            }
+        }
+        public string Username
+        {
+            get
+            {
+                //return ConfigurationManager.AppSettings["Username"];
+                return "testUser";
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                //return ConfigurationManager.AppSettings["Password"];
+                return "Test1234";
+            }
+        }
 
         public TestBase()
         {
-
-        }
-        public TestBase(string baseUrl)
-        {
-            _baseUrl = baseUrl;
-        }
-        ~TestBase()
-        {
-            //_driver.Quit();
-        }
-
-        public IWebDriver StartBrowser()
-        {
-            string webBrowser = System.Configuration.ConfigurationManager.AppSettings["Browser"]; ;
-            DesiredCapabilities caps;
-
-            bool runOnSauceLab = Convert.ToBoolean(ConfigurationManager.AppSettings["RunOnSaucelab"]);
+            //string webBrowser = ConfigurationManager.AppSettings["Browser"];
+            string webBrowser = "chrome";
 
             switch (webBrowser.ToLower())
             {
                 case "firefox":
-                    if (runOnSauceLab)
-                    {
-                        caps = DesiredCapabilities.Firefox();
-                        caps.SetCapability(CapabilityType.Platform, ConfigurationManager.AppSettings["Platform"]);
-                        caps.SetCapability(CapabilityType.Version, ConfigurationManager.AppSettings["FireFoxVersion"]);
-                        caps.SetCapability("j6", "Testing Selenium 2 with C# on Sauce");
-                        caps.SetCapability("username", "hmnd42009");
-                        caps.SetCapability("accessKey", "0cc5c5c4-db5a-4e69-bfd0-67889d3557e0");
-                        _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps);
-                    }
-                    else
-                    {
-                        _driver = new FirefoxDriver();
-                    }
+                    WebDriver = new FirefoxDriver();
                     break;
-
                 case "iexplore":
-                    if (runOnSauceLab)
-                    {
-                        caps = DesiredCapabilities.InternetExplorer();
-                        caps.SetCapability(CapabilityType.Platform, ConfigurationManager.AppSettings["Platform"]);
-                        caps.SetCapability(CapabilityType.Version, ConfigurationManager.AppSettings["IexploreVersion"]);
-                        caps.SetCapability("j6", "Testing Selenium 2 with C# on Sauce");
-                        caps.SetCapability("username", "hmnd42009");
-                        caps.SetCapability("accessKey", "0cc5c5c4-db5a-4e69-bfd0-67889d3557e0");
-                        _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps);
-                    }
-                    else
-                    {
-                        _driver = new InternetExplorerDriver();
-                    }
+                    WebDriver = new InternetExplorerDriver();
                     break;
-
                 case "chrome":
-                    if (runOnSauceLab)
-                    {
-
-                        caps = DesiredCapabilities.Chrome();
-                        caps.SetCapability(CapabilityType.Platform, ConfigurationManager.AppSettings["Platform"]);
-                        caps.SetCapability(CapabilityType.Version, "");
-                        caps.SetCapability("j6", "Testing Selenium 2 with C# on Sauce");
-                        caps.SetCapability("username", "xingeryu");
-                        caps.SetCapability("accessKey", "66647a62-0334-41a5-92ea-0c80b14a5a50");
-                        _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps);
-                    }
-                    else
-                    {
-                        _driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), new ChromeOptions(), TimeSpan.FromMinutes(5));
-                    }
+                    WebDriver = new ChromeDriver();
                     break;
                 default:
                     break;
@@ -94,15 +65,14 @@ namespace Selenium
             //_driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(300));
             //_driver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(300));
 
-            _driver.Manage().Window.Maximize();
-
-            return _driver;
+            WebDriver.Manage().Window.Maximize();
         }
 
-        public void Navigate(string url)
+        public void Dispose()
         {
-            _driver.Navigate().GoToUrl(_baseUrl + url);
+            WebDriver.Quit();
         }
+
     }
 
 }

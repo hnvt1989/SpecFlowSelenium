@@ -19,4 +19,3 @@ Scenario:  Add Employee no Discount
 	And the gross pay should be 2000
 	And the benefit cost should be 38.46
 	And the net pay should be 1961.54
-
