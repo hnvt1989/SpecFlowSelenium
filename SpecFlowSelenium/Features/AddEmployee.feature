@@ -1,7 +1,5 @@
 ﻿Feature: Add Employee
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	As an Employer, I want to input my employee data so that I can get a preview of benefit costs.
 
 @AddEmployeeNoDiscount
 Scenario:  Add Employee no Discount
