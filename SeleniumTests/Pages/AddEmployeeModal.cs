@@ -20,23 +20,23 @@ namespace Selenium.Pages
         }
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(1) > div > input")]
-        [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
+        [CacheLookup]
         private IWebElement FirstName;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(2) > div > input")]
-        [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
+        [CacheLookup]
         private IWebElement LastName;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(3) > div > input")]
-        [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
+        [CacheLookup]
         private IWebElement Dependants;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(4) > div > button.btn.btn-primary")]
-        [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
+        [CacheLookup]
         private IWebElement SubmitButton;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(4) > div > button.btn.btn-default")]
-        [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
+        [CacheLookup]
         private IWebElement CloseButton;
 
         public void SetFirstName(string firstName)

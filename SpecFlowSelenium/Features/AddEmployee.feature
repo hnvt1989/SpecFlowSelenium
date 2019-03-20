@@ -14,8 +14,8 @@ Scenario:  Add Employee no Discount
 	And Number of dependent is 0
 	And the employee should save
 	And I should see the employee in the table
-	And the salary should be 52000
+	And the salary should be 52000.00
 	And the dependent should be 0
-	And the gross pay should be 2000
+	And the gross pay should be 2000.00
 	And the benefit cost should be 38.46
 	And the net pay should be 1961.54

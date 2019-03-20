@@ -99,11 +99,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.And("I should see the employee in the table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
- testRunner.And("the salary should be 52000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the salary should be 52000.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 18
  testRunner.And("the dependent should be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
- testRunner.And("the gross pay should be 2000", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the gross pay should be 2000.00", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 20
  testRunner.And("the benefit cost should be 38.46", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21

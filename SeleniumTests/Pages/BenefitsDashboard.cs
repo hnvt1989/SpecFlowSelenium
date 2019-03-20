@@ -29,9 +29,17 @@ namespace Selenium.Pages
         [CacheLookup] //The CacheLookup property will tell Selenium to cache the web object the first time it is found
         private IWebElement AddEmployeeButton;
 
+        [FindsBy(How = How.Id, Using = "employee-table")]
+        private IWebElement EmployeeTable;
+
         public void ClickAddEmployeeButton()
         {
             AddEmployeeButton.Click();
+        }
+
+        public IWebElement GetRowByLastName(string lastName)
+        {
+            return EmployeeTable.FindElement(By.XPath("//td[./text()='" + lastName + "']")).FindElement(By.XPath(".."));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Selenium;
 using Selenium.Pages;
@@ -11,7 +12,6 @@ namespace SpecFlowSelenium.Steps
     [Binding]
     public class AddEmployeeSteps
     {
-        //private IWebDriver driver;
         private Login login;
         private BenefitsDashboard dashboard;
         private AddEmployeeModal addEmployeeModal;
@@ -39,86 +39,79 @@ namespace SpecFlowSelenium.Steps
         [Given(@"I am on the Benefits Dashboard page")]
         public void GivenIAmOnTheBenefitsDashboardPage()
         {
-            //ScenarioContext.Current.Pending();
+            //TODO Verify the Benefit Dashboard page ?
         }
         
         [When(@"I select Add Employee")]
         public void WhenISelectAddEmployee()
         {
             dashboard.ClickAddEmployeeButton();
-            //ScenarioContext.Current.Pending();
         }
         
         [Then(@"I should be able to enter employee details")]
         public void ThenIShouldBeAbleToEnterEmployeeDetails()
         {
-            Thread.Sleep(10000);
-            //addEmployeeModal.SetFirstName()
-            //ScenarioContext.Current.Pending();
+            Thread.Sleep(10000);//TODO: Validating the Add Employee Modal instead of waiting for 10 seconds
         }
         
         [Then(@"First name is ‘Jason’")]
         public void ThenFirstNameIsJason()
         {
             addEmployeeModal.SetFirstName("Jason");
-            //ScenarioContext.Current.Pending();
         }
         
         [Then(@"Last name is ‘Smith’")]
         public void ThenLastNameIsSmith()
         {
             addEmployeeModal.SetLastName("Smith");
-            //ScenarioContext.Current.Pending();
         }
         
         [Then(@"Number of dependent is (.*)")]
         public void ThenNumberOfDependentIs(int p0)
         {
-            //ScenarioContext.Current.Pending();
             addEmployeeModal.SetDependants(p0);
         }
         
         [Then(@"the employee should save")]
         public void ThenTheEmployeeShouldSave()
         {
-            //ScenarioContext.Current.Pending();
             addEmployeeModal.ClickSubmit();
         }
         
         [Then(@"I should see the employee in the table")]
         public void ThenIShouldSeeTheEmployeeInTheTable()
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(dashboard.GetRowByLastName("Smith").Displayed, true);
         }
         
         [Then(@"the salary should be (.*)")]
-        public void ThenTheSalaryShouldBe(int p0)
+        public void ThenTheSalaryShouldBe(Decimal p0)
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(4)")).Text);
         }
-        
+
         [Then(@"the dependent should be (.*)")]
         public void ThenTheDependentShouldBe(int p0)
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(5)")).Text);
         }
-        
+
         [Then(@"the gross pay should be (.*)")]
-        public void ThenTheGrossPayShouldBe(int p0)
+        public void ThenTheGrossPayShouldBe(Decimal p0)
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(6)")).Text);
         }
-        
+
         [Then(@"the benefit cost should be (.*)")]
         public void ThenTheBenefitCostShouldBe(Decimal p0)
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(7)")).Text);
         }
-        
+
         [Then(@"the net pay should be (.*)")]
         public void ThenTheNetPayShouldBe(Decimal p0)
         {
-            //ScenarioContext.Current.Pending();
+            Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(8)")).Text);
         }
     }
 }
