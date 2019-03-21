@@ -21,23 +21,23 @@ namespace Selenium.Pages
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(1) > div > input")]
         [CacheLookup]
-        private IWebElement FirstName;
+        public IWebElement FirstName;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(2) > div > input")]
         [CacheLookup]
-        private IWebElement LastName;
+        public IWebElement LastName;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(3) > div > input")]
         [CacheLookup]
-        private IWebElement Dependants;
+        public IWebElement Dependants;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(4) > div > button.btn.btn-primary")]
         [CacheLookup]
-        private IWebElement SubmitButton;
+        public IWebElement SubmitButton;
 
         [FindsBy(How = How.CssSelector, Using = "#employees-form > div:nth-child(4) > div > button.btn.btn-default")]
         [CacheLookup]
-        private IWebElement CloseButton;
+        public IWebElement CloseButton;
 
         public void SetFirstName(string firstName)
         {

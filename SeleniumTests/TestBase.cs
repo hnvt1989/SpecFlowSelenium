@@ -61,9 +61,11 @@ namespace Selenium
                     break;
             }
 
-            //_driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(60));
-            //_driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(300));
-            //_driver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(300));
+            WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            //WebDriver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(60));
+            WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+                //.SetPageLoadTimeout(TimeSpan.FromSeconds(300));
+            WebDriver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(10);
 
             WebDriver.Manage().Window.Maximize();
         }

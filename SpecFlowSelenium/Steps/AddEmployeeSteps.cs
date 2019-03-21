@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using Selenium;
 using Selenium.Pages;
 using System;
@@ -21,6 +22,8 @@ namespace SpecFlowSelenium.Steps
         public AddEmployeeSteps(TestBase testBase)
         {
             this._testBase = testBase;
+
+            //TODO: Can we inject the Page Objects as dependencies ?
             login = new Login(_testBase);
             dashboard = new BenefitsDashboard(_testBase);
             addEmployeeModal = new AddEmployeeModal(_testBase);
@@ -39,19 +42,33 @@ namespace SpecFlowSelenium.Steps
         [Given(@"I am on the Benefits Dashboard page")]
         public void GivenIAmOnTheBenefitsDashboardPage()
         {
-            //TODO Verify the Benefit Dashboard page ?
+            //TODO more validations of the Benefit Dashboard page
+            Assert.AreEqual(true, dashboard.EmployeeTable.Displayed);
+            Assert.AreEqual(true, dashboard.AddEmployeeButton.Displayed);
+            Assert.AreEqual(true, dashboard.AddEmployeeButton.Enabled);
         }
         
         [When(@"I select Add Employee")]
         public void WhenISelectAddEmployee()
         {
             dashboard.ClickAddEmployeeButton();
+
+            //wait until the Add Employ modal displayed
+            var wait = new WebDriverWait(_testBase.WebDriver, new TimeSpan(0, 0, 30));
+            var element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("addEmployeeModal")));
         }
         
         [Then(@"I should be able to enter employee details")]
         public void ThenIShouldBeAbleToEnterEmployeeDetails()
         {
-            Thread.Sleep(10000);//TODO: Validating the Add Employee Modal instead of waiting for 10 seconds
+            Assert.AreEqual(true, addEmployeeModal.FirstName.Displayed);
+            Assert.AreEqual(true, addEmployeeModal.FirstName.Enabled);
+            Assert.AreEqual(true, addEmployeeModal.LastName.Displayed);
+            Assert.AreEqual(true, addEmployeeModal.LastName.Enabled);
+            Assert.AreEqual(true, addEmployeeModal.Dependants.Displayed);
+            Assert.AreEqual(true, addEmployeeModal.Dependants.Enabled);
+
+            //TODO: More validation of the Add Employee Modal ?
         }
         
         [Then(@"First name is ‘Jason’")]
@@ -87,6 +104,7 @@ namespace SpecFlowSelenium.Steps
         [Then(@"the salary should be (.*)")]
         public void ThenTheSalaryShouldBe(Decimal p0)
         {
+            //TODO: maybe a row could be a class, for better encapsulating and accessing fields
             Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(4)")).Text);
         }
 
@@ -99,6 +117,7 @@ namespace SpecFlowSelenium.Steps
         [Then(@"the gross pay should be (.*)")]
         public void ThenTheGrossPayShouldBe(Decimal p0)
         {
+            //NOTE this assertion will fail
             Assert.AreEqual(p0.ToString(), dashboard.GetRowByLastName("Smith").FindElement(By.CssSelector("td:nth-child(6)")).Text);
         }
 
