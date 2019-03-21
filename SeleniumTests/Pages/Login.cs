@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Internal;
-using OpenQA.Selenium.Support.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace Selenium.Pages
 {
@@ -21,7 +16,6 @@ namespace Selenium.Pages
 
             //lazy loading, wait will start only if we perform operation on control
             RetryingElementLocator factory = new RetryingElementLocator(driver, TimeSpan.FromMinutes(2));
-
             PageFactory.InitElements(this,factory);
         }
 

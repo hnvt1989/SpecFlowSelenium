@@ -27,7 +27,7 @@ namespace SpecFlowSelenium.Hooks
             [AfterScenario]
             public void Dispose()
             {
-                //_testBase?.Dispose();
+                _testBase?.Dispose();
             }
         }
 }
