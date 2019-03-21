@@ -1,4 +1,14 @@
-#NOTES
+# NOTES
+
+# Written portion of the challenge:
+Bugs Report: https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Bugs.docx
+
+Test cases:  https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Test%20Cases.%20Scenario%201.docx
+             https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Test%20Cases.%20Scenario%202.docx
+             https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Test%20Cases.%20Scenario%203.docx
+             https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Test%20Cases.%20Scenario%204.docx
+             
+# Automated test portion of the challenge:
 
 1. Chrome Driver in use: chrome driver 74
 2. Please make sure chrome driver exists in the following folder: SpecFlowSelenium/bin/Debug/chromedriver.exe
