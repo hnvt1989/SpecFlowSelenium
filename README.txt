@@ -1,6 +1,6 @@
 # NOTES:
 
-# Written portion of the challenge (Click 'Raw' link will download the file)
+# Written portion of the challenge (Click 'View Raw' link will download the file)
 Bugs Report: https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Bugs.docx
 
 Test cases:  https://github.com/hnvt1989/SpecFlowSelenium/blob/master/QA%20Challenge.%20Test%20Cases.%20Scenario%201.docx
