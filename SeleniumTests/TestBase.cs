@@ -20,7 +20,7 @@ namespace Selenium
             get
             {
                 //return ConfigurationManager.AppSettings["SiteUrl"];
-                return "C:\\dev\\SeleniumTests\\";
+                return "C:\\dev\\QAChallengeSubmission\\SeleniumTests\\";
             }
         }
         public string Username
